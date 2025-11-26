@@ -1,0 +1,164 @@
+.flashcard-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.flashcard-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.nav-button {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  border: 3px solid rgba(59, 130, 246, 0.6);
+  color: white;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  min-width: 120px;
+  box-shadow: 
+    0 8px 20px rgba(59, 130, 246, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.nav-button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.nav-button:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 12px 30px rgba(59, 130, 246, 0.5),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(59, 130, 246, 0.9);
+}
+
+.nav-button:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.nav-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.prev-button {
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+}
+
+.next-button {
+  background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%);
+  color: white;
+}
+
+.next-button:hover {
+  color: white;
+}
+
+.card-counter {
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(76, 29, 149, 0.9) 100%);
+  border: 3px solid rgba(59, 130, 246, 0.6);
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 
+    0 8px 20px rgba(59, 130, 246, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  animation: pulseCounter 2s ease-in-out infinite;
+}
+
+@keyframes pulseCounter {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 8px 20px rgba(59, 130, 246, 0.3),
+      inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 
+      0 12px 30px rgba(124, 58, 237, 0.4),
+      inset 0 2px 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+.flashcard-list-empty {
+  text-align: center;
+  color: #8B6B9A;
+  padding: 40px;
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.9) 0%, rgba(221, 160, 221, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  border-radius: 30px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 15px 35px rgba(255, 182, 193, 0.3),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  animation: bounceIn 0.8s ease;
+}
+
+.flashcard-list-empty p {
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    gap: 15px;
+  }
+
+  .nav-button {
+    min-width: 100px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .card-counter {
+    min-width: 120px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
